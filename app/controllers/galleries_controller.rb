@@ -1,13 +1,11 @@
 class GalleriesController < ApplicationController
-  before_action :set_gallery, only: [:show, :edit, :update, :destroy]
+  before_action :set_gallery, only: [:edit, :update, :destroy]
   before_action :authenticate_user!
 
   def index
     @galleries = current_user.galleries.all
   end
 
-  def show
-  end
 
   def new
     @gallery = current_user.galleries.new
