@@ -1,22 +1,28 @@
 <div class="container">
-
-<div class="row">
-
-    <div class="col-lg-12">
-        <h1 class="page-header">Gallery</h1>
+    <div class="row" style="text-align:center; border-bottom:1px dashed #ccc;  padding:0 0 20px 0; margin-bottom:40px;">
+        <h3 style="font-family:'Bree Serif', arial; font-weight:bold; font-size:30px;">
+            <%= link_to "Upload Photo" ,new_gallery_path,class: "btn btn-primary" %>
+        </h3>
     </div>
-    <%@galleries.each do |gallery|%>
-      <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-        <%= link_to gallery_path(gallery) do %>
-          <%= image_tag gallery.photo.url, class: 'img-responsive' %>
-          <!-- <a class="thumbnail" href="#">
-              <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-          </a> -->
-        <%end%>
-      </div>
-    <%end%>
-</div>
 
-<hr>
+    <ul class="row first">
+      <%@galleries.each do |gallery|%>
+        <li>
+            <%= image_tag gallery.photo.url, class: 'img-responsive', alt: "" %>
+            <div class="col-md-12 text">
+                <div class="col-md-6">
+                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                    <%= link_to "Edit",edit_gallery_path(gallery) %>
+                </div>
+                <div class="col-md-6">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                    <%= link_to 'Destroy',  gallery_path(gallery),  data: { confirm: 'Are you sure?' }, method: :delete %>
+                </div>                
+            </div>
+        </li>
+      <%end%>
+    </ul>
+</div> <!-- /container -->
 
-</div>
+
+
