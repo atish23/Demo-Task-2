@@ -11,12 +11,14 @@
             <%= image_tag gallery.photo.url, class: 'img-responsive', alt: "" %>
             <div class="col-md-12 text">
                 <div class="col-md-6">
-                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-                    <%= link_to "Edit",edit_gallery_path(gallery) %>
+                    <%= link_to edit_gallery_path(gallery) do %>
+                        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                    <% end %>
                 </div>
                 <div class="col-md-6">
-                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                    <%= link_to 'Destroy',  gallery_path(gallery),  data: { confirm: 'Are you sure?' }, method: :delete %>
+                    <%= link_to gallery_path(gallery),  data: { confirm: 'Are you sure?' }, method: :delete do %>
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                    <% end %>
                 </div>                
             </div>
         </li>
@@ -25,4 +27,11 @@
 </div> <!-- /container -->
 
 
-
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
