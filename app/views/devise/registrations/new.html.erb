@@ -22,7 +22,14 @@
     <div class="form-group">
         <%= f.label :dob, class: 'col-sm-2 control-label'  %>
         <div class="col-sm-6">
-            <%= f.date_select :dob, start_year: 1920, end_year: 2000, class: 'form-control'  %>
+            <div class='input-group date' id='datetimepicker9'>
+                <%= f.text_field :dob, class: 'form-control'  %>
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar">
+                    </span>
+                </span>
+            </div>
+            
         </div>
     </div>
 
